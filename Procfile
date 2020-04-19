@@ -1,0 +1,1 @@
+web: gunicorn lc-instagram-images.main:app

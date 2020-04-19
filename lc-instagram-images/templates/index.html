@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Life.Church Instagram Images</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            {% for i in range %}
+                <a href="./{{ i|string() }}">Part {{ i }}</a>
+            {% endfor %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+html {
+    font-size: 16px;
+}
+
+.container {
+    padding: 0 0.75rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    font-size: 32pt;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
