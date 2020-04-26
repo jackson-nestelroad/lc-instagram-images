@@ -9,9 +9,8 @@
     </head>
     <body>
         <div class="container">
-            {% for image in images %}
-                <p class="name">{{ image.name }}</p>
-                <img src="{{ image.url }}"/>
+            {% for error in errors %}
+                <p class="error">{{ error.message }}</p>
             {% endfor %}
         </div>
     </body>

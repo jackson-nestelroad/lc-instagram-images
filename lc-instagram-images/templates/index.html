@@ -9,8 +9,9 @@
     </head>
     <body>
         <div class="container">
+            <a class="message-name" href="{{ message.url }}">{{ message.name }}</a>
             {% for i in range %}
-                <a href="./{{ i|string() }}">Part {{ i }}</a>
+                <a class="part-link" href="./{{ i|string() }}">Part {{ i }}</a>
             {% endfor %}
         </div>
     </body>

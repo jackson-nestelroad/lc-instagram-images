@@ -1,21 +1,16 @@
-from flask import Flask, render_template
+import os
+from flask_migrate import Migrate
 
-import scraper
+from flask import Flask
+from models import *
+from models.db import db
+from scraper.index import scraperbp
+
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.register_blueprint(scraperbp)
 
-
-@app.route('/')
-def get_index():
-    return render_template('index.html', range=range(1, 5))
-
-
-@app.route('/<int:part>')
-def get_instagram_images(part):
-    try:
-        images = scraper.get_open_urls('Instagram', part)
-        images = list(map(lambda url: scraper.get_image_url(url), images))
-    except scraper.ScrapeException as e:
-        return str(e)
-
-    return render_template('images.html', images=images)
+db.init_app(app)
+migrate = Migrate(app, db)
