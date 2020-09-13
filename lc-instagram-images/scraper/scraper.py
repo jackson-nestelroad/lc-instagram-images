@@ -15,10 +15,10 @@ open_life_church = 'https://open.life.church'
 
 
 def get_media_url():
-    full_url = life_church + '/media/'
+    full_url = life_church + '/media/messages/'
     page = requests.get(full_url)
     soup = BeautifulSoup(page.content, 'html.parser')
-    links = soup.select('.media-section--sermon .carousel >li:first-child a')
+    links = soup.select('#sermon a')
     if len(links) == 0:
         raise ScrapeException('Could not find latest sermon at ' + full_url)
     return links[0]['href']
